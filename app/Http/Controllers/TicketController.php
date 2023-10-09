@@ -74,8 +74,8 @@ class TicketController extends Controller
     }
     public function seeAll()
     {
-        $tickets = Ticket::get();
-        return response($tickets, 200)->header('Content-Type', 'text/plain');
+        $tickets = Ticket::paginate(10); 
+        return response()->json($tickets, 200);
 
     }
 }
